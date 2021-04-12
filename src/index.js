@@ -44,7 +44,15 @@ document.addEventListener("DOMContentLoaded", () => {
     function addRow(info) {
         const tableBody = document.getElementById("contacts_body")
         const row = document.createElement("tr")
-        info.forEach((contact) => console.log(contact))
+        info.forEach((contact) => { 
+            for (key in contact) {
+                let td = document.createElement("td")
+                td.classList.add(key)
+                td.innerHTML = contact[key]
+                row.append(td)
+            }
+            tableBody.append(row)
+        })
     }
 
     addRow(contacts)
