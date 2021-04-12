@@ -3,6 +3,13 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    let contacts = [
+        {
+            firstName: "Jill",
+            lastName: "Smith",
+            email: "JillSmith@gmail.com"
+        },
+    ]
 
     const mainDiv = document.querySelector(".main_div")
     
@@ -13,16 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const tableBody = document.createElement("tbody");
         tableBody.style = "text-align: center;";
+        tableBody.id = "contacts_body"
         tableBody.innerHTML = `
             <tr>
                 <th class="text-center">Firstname</th>
                 <th class="text-center">Lastname</th> 
                 <th class="text-center">Email</th>
-            </tr>
-            <tr>
-                <td>Jill</td>
-                <td>Smith</td>
-                <td>JillSmith@gmail.com</td>
             </tr>
         `;
 
@@ -37,6 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     createTable()
+
+    function addRow(info) {
+        const tableBody = document.getElementById("contacts_body")
+        const row = document.createElement("tr")
+        info.forEach((contact) => console.log(contact))
+    }
+
+    addRow(contacts)
 
     // mainDiv.addEventListener("click", function() {
     //     const target = event.target
