@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
         table.className = "table table-hover";
         table.style = "width:60%;";
 
+        
+
         const tableBody = document.createElement("tbody");
         tableBody.style = "text-align: center;";
         tableBody.id = "contacts_body"
