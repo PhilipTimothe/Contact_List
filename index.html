@@ -22,13 +22,27 @@
         
         <div class="main_div" id="main_div" align="center">
 
+            <!-- initial construct of elements -->
             <form class="form-inline">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputName2" placeholder="Search">
+                    <button type="submit" class="btn search">
+                        <input type="text" class="form-control" id="exampleInputName2" placeholder="Search">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
                 </div>
-                <button type="submit" class="btn btn-default">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                </button>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Sort By <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#" class="text-center">A - Z</a></li>
+                      <li><a href="#" class="text-center">Z - A</a></li>
+                      <!-- <li role="separator" class="divider"></li>
+                      <li><a href="#">Optional Selection</a></li> -->
+                    </ul>
+                  </div>
+
             </form><br>
 
         </div>
