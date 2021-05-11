@@ -9,6 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
             lastName: "Smith",
             email: "JillSmith@gmail.com"
         },
+        {
+            firstName: "Alice",
+            lastName: "Tory",
+            email: "AliceTory@gmail.com"
+        },
     ]
 
     const mainDiv = document.querySelector(".main_div")
@@ -79,8 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function addRow(info) {
         const tableBody = document.getElementById("contacts_body")
-        const row = document.createElement("tr")
         info.forEach((contact) => { 
+            const row = document.createElement("tr")
             for (key in contact) {
                 let td = document.createElement("td")
                 td.classList.add(key)
