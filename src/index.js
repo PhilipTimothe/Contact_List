@@ -17,6 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
             lastName: "Tory",
             email: "AliceTory@gmail.com"
         },
+        {
+            firstName: "Thomas",
+            lastName: "Keeler",
+            email: "ThomasKeeler@gmail.com"
+        },
+        {
+            firstName: "Bob",
+            lastName: "Heller",
+            email: "Hellisbob@gmail.com"
+        },
     ]
 
     const mainDiv = document.querySelector(".main_div")
@@ -64,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
             createTable()
             addRow(firstNameSort)
         } else if (event.target.id === "Last-Name") {
-            let firstNameSort = contacts.sort((a, b) => (a.firstName < b.firstName) ? 1 : -1) ;
+            let firstNameSort = contacts.sort((a, b) => (a.lastName > b.lastName) ? 1 : -1) ;
             const table = document.getElementById("contact_table")
             table.remove()
             createTable()
@@ -106,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createTable()
 
-    
+
 // ............................................................Create Row Functionality
 
     function addRow(info) {
