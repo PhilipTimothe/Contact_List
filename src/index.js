@@ -3,6 +3,9 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+
+// ............................................................Contact Object Array   
+
     let contacts = [
         {
             firstName: "Jill",
@@ -17,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ]
 
     const mainDiv = document.querySelector(".main_div")
+
 
 // ............................................................Create Search and Sort Functionality
 
@@ -48,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createSearchAndSort()
 
+
 // ............................................................Sort Functionality
 
     mainDiv.addEventListener("click", function(event) {
@@ -55,11 +60,18 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.target.id === "First-Name") {
             let firstNameSort = contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1) ;
             const table = document.getElementById("contact_table")
-            table.innerHTML = ""
+            table.remove()
+            createTable()
+            addRow(firstNameSort)
+        } else if (event.target.id === "Last-Name") {
+            let firstNameSort = contacts.sort((a, b) => (a.firstName < b.firstName) ? 1 : -1) ;
+            const table = document.getElementById("contact_table")
+            table.remove()
             createTable()
             addRow(firstNameSort)
         }
     })
+
 
 // ............................................................Create Table
     
@@ -82,18 +94,19 @@ document.addEventListener("DOMContentLoaded", () => {
             </tr>
         `;
 
-        const addButton = document.createElement('button');
-        addButton.className = "btn btn-default";
-        addButton.type = "submit";
-        addButton.innerHTML = "Add Contact";
+        // const addButton = document.createElement('button');
+        // addButton.className = "btn btn-default";
+        // addButton.type = "submit";
+        // addButton.innerHTML = "Add Contact";
 
         table.append(tableBody);
         mainDiv.append(table);
-        mainDiv.append(addButton);
+        // mainDiv.append(addButton);
     }
 
     createTable()
 
+    
 // ............................................................Create Row Functionality
 
     function addRow(info) {
