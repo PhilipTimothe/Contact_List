@@ -48,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createSearchAndSort()
 
+// ............................................................Sort Functionality
+
     mainDiv.addEventListener("click", function(event) {
         console.log(event.target)
         if (event.target.id === "First-Name") {
