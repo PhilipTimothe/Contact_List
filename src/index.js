@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
             Sort By <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-                <li><a href="#" class="text-center">A - Z</a></li>
-                <li><a href="#" class="text-center">Z - A</a></li>
+                <li><a href="#" id="First-Name" class="First-Name">First Name</a></li>
+                <li><a href="#" id="Last-Name" class="Last-Name">Last Name</a></li>
             </ul>
         </div> 
         `;
@@ -48,11 +48,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createSearchAndSort()
 
+    mainDiv.addEventListener("click", function(event) {
+        console.log(event.target)
+        if (event.target.id === "First-Name") {
+            let firstNameSort = contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1) ;
+            const table = document.getElementById("contact_table")
+            table.innerHTML = ""
+            createTable()
+            addRow(firstNameSort)
+        }
+    })
+
 // ............................................................Create Table
     
     function createTable() {
         const table = document.createElement("table");
         table.className = "table table-hover";
+        table.id = "contact_table"
         table.style = "width:60%;";
 
         
