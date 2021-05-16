@@ -135,13 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     addRow(contacts)
 
-    // mainDiv.addEventListener("click", function() {
-    //     const target = event.target
-    //     if (target === event.currentTarget) {
-    //         // do something here...
-    //     }
-    // })
-
 
 });
 
