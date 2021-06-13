@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
         form.className = "form-inline";
         form.innerHTML = `
         <div class="form-group">
-            <button type="submit" class="btn search">
-                <input type="text" class="form-control" id="exampleInputName2" placeholder="Search">
+            <input type="text" name="contact" value="" class="form-control" id="exampleInputName2" placeholder="Search">
+            <button type="submit" id="btn search" class="btn search">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </button>
         </div>
@@ -62,11 +62,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createSearchAndSort()
 
+// ............................................................Search Functionality 
+
+    const form = document.querySelector(".form-inline")
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        console.log(event.target.contact.value)
+    })
+    
 
 // ............................................................Sort Functionality
 
     mainDiv.addEventListener("click", function(event) {
-        console.log(event.target)
+        // console.log(event.target)
         if (event.target.id === "First-Name") {
             let firstNameSort = contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1) ;
             const table = document.getElementById("contact_table")
