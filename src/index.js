@@ -68,7 +68,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("submit", function(event) {
         event.preventDefault();
-        console.log(event.target.contact.value)
+        console.log(event.target.contact.value);
+        let searchedName = contacts.filter(contact => contact.firstName.toLowerCase() === event.target.contact.value.toLowerCase());
+        // think of an edgecase for allowing returning all contacts if there are no results / or an alert for no contacts
+        if (searchedName.length !== 0) {
+            const table = document.getElementById("contact_table")
+            table.remove()
+            createTable()
+            addRow(searchedName)
+        } else {
+            const table = document.getElementById("contact_table")
+            table.remove()
+            const noContactAlert = document.createElement("div");
+            noContactAlert.className = "alert alert-info";
+            noContactAlert.role = "alert"
+            noContactAlert.style = "width:60%;";
+            noContactAlert.innerHTML = `
+                No Contacts
+            `
+            mainDiv.append(noContactAlert);
+            // createTable()
+        }
     })
     
 
@@ -77,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mainDiv.addEventListener("click", function(event) {
         // console.log(event.target)
         if (event.target.id === "First-Name") {
-            let firstNameSort = contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1) ;
+            let firstNameSort = contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1);
             const table = document.getElementById("contact_table")
             table.remove()
             createTable()
