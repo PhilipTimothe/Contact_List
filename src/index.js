@@ -37,12 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function createSearchAndSort() {
         const form = document.createElement("form");
         form.className = "form-inline";
+        form.style = "padding-bottom:5px"
         form.innerHTML = `
         <div class="form-group">
-            <input type="text" name="contact" value="" class="form-control" id="exampleInputName2" placeholder="Search">
-            <button type="submit" id="btn search" class="btn search">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            </button>
+            <input type="text" name="contact" value="" class="form-control" id="exampleInputName2" placeholder="Search By First Name">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
         </div>
 
         <div class="btn-group">
@@ -66,26 +65,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.querySelector(".form-inline")
 
-    form.addEventListener("submit", function(event) {
+    form.addEventListener("input", function(event) {
         event.preventDefault();
-        console.log(event.target.contact.value);
-        let searchedName = contacts.filter(contact => contact.firstName.toLowerCase() === event.target.contact.value.toLowerCase());
-        // think of an edgecase for allowing returning all contacts if there are no results / or an alert for no contacts
-        if (searchedName.length !== 0) {
+        // let searchedName = contacts.filter(contact => contact.firstName.toLowerCase() === event.target.value.toLowerCase());
+        // build on edgecase with a condition that filters for both last and first name and values equally each other
+        let searchedName = contacts.filter(contact => 
+            contact.firstName.toLowerCase().includes(event.target.value.toLowerCase()) || 
+            contact.lastName.toLowerCase().includes(event.target.value.toLowerCase())
+            );
+        // console.log(searchedName)
+        if (event.target.value === "") {
             const table = document.getElementById("contact_table")
-            table.remove()
+            const contactAlert = document.getElementById("no_contact_alert");
+            if (table) table.remove()
+            if (contactAlert) contactAlert.remove()
+
+            createTable()
+            addRow(contacts)
+        } else if (searchedName[0]) {
+            const table = document.getElementById("contact_table")
+            const contactAlert = document.getElementById("no_contact_alert");
+            if (table) table.remove()
+            if (contactAlert) contactAlert.remove()
+            
             createTable()
             addRow(searchedName)
-        } else {
+        } else if (!event.target.value === "" && !searchedName[0]) {
             const table = document.getElementById("contact_table")
-            table.remove()
+            if (table) table.remove()
+
             const noContactAlert = document.createElement("div");
             noContactAlert.className = "alert alert-info";
+            noContactAlert.id = "no_contact_alert"
             noContactAlert.role = "alert"
             noContactAlert.style = "width:60%;";
             noContactAlert.innerHTML = `
                 No Contacts
             `
+            
+            const contactAlert = document.getElementById("no_contact_alert");
+            if (contactAlert) contactAlert.remove()
             mainDiv.append(noContactAlert);
             // createTable()
         }
