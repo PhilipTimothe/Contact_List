@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const table = document.createElement("table");
         table.className = "table table-hover";
         table.id = "contact_table"
-        table.style = "width:60%;";
+        table.style = "overflow:auto;";
 
         
 
