@@ -67,47 +67,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("input", function(event) {
         event.preventDefault();
-        // let searchedName = contacts.filter(contact => contact.firstName.toLowerCase() === event.target.value.toLowerCase());
-        // build on edgecase with a condition that filters for both last and first name and values equally each other
-        let searchedName = contacts.filter(contact => 
-            contact.firstName.toLowerCase().includes(event.target.value.toLowerCase()) || 
-            contact.lastName.toLowerCase().includes(event.target.value.toLowerCase())
-            );
-        // console.log(searchedName)
-        if (event.target.value === "") {
-            const table = document.getElementById("contact_table")
-            const contactAlert = document.getElementById("no_contact_alert");
-            if (table) table.remove()
-            if (contactAlert) contactAlert.remove()
+        // console.log([`${event.target.value.toLowerCase()}`])
+       
+       // Declare variables
+        var filter, a, i, txtValue;
+        filter = event.target.value.toUpperCase();
+        tableBody = document.getElementById("contacts_body");
+        tr = tableBody.getElementsByTagName('tr');
+        // console.log(tr[1].innerHTML)
 
-            createTable()
-            addRow(contacts)
-        } else if (searchedName[0]) {
-            const table = document.getElementById("contact_table")
-            const contactAlert = document.getElementById("no_contact_alert");
-            if (table) table.remove()
-            if (contactAlert) contactAlert.remove()
-            
-            createTable()
-            addRow(searchedName)
-        } else if (!event.target.value === "" && !searchedName[0]) {
-            const table = document.getElementById("contact_table")
-            if (table) table.remove()
-
-            const noContactAlert = document.createElement("div");
-            noContactAlert.className = "alert alert-info";
-            noContactAlert.id = "no_contact_alert"
-            noContactAlert.role = "alert"
-            noContactAlert.style = "width:60%;";
-            noContactAlert.innerHTML = `
-                No Contacts
-            `
-            
-            const contactAlert = document.getElementById("no_contact_alert");
-            if (contactAlert) contactAlert.remove()
-            mainDiv.append(noContactAlert);
-            // createTable()
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            a = tr[i].getElementsByTagName("td")[0];
+            console.log(a);
+            // txtValue = a;
+            // if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            // tr[i].style.display = "";
+            // } else {
+            // tr[i].style.display = "none";
+            // }
         }
+        // // let searchedName = contacts.filter(contact => contact.firstName.toLowerCase() === event.target.value.toLowerCase());
+        // // build on edgecase with a condition that filters for both last and first name and values equally each other
+        // let searchedName = contacts.filter(contact => 
+        //     contact.firstName.toLowerCase().includes(`${event.target.value.toLowerCase()}`) || 
+        //     contact.lastName.toLowerCase().includes(`${event.target.value.toLowerCase()}`)
+        //     );
+        // // console.log(searchedName)
+        // if (event.target.value === "") {
+        //     const table = document.getElementById("contact_table")
+        //     const contactAlert = document.getElementById("no_contact_alert");
+        //     if (table) table.remove()
+        //     if (contactAlert) contactAlert.remove()
+
+        //     createTable()
+        //     addRow(contacts)
+        // } else if (searchedName[0]) {
+        //     const table = document.getElementById("contact_table")
+        //     const contactAlert = document.getElementById("no_contact_alert");
+        //     if (table) table.remove()
+        //     if (contactAlert) contactAlert.remove()
+            
+        //     createTable()
+        //     addRow(searchedName)
+        // } else if (!event.target.value === "" && !searchedName[0]) {
+        //     const table = document.getElementById("contact_table")
+        //     if (table) table.remove()
+
+        //     const noContactAlert = document.createElement("div");
+        //     noContactAlert.className = "alert alert-info";
+        //     noContactAlert.id = "no_contact_alert"
+        //     noContactAlert.role = "alert"
+        //     noContactAlert.style = "width:60%;";
+        //     noContactAlert.innerHTML = `
+        //         No Contacts
+        //     `
+            
+        //     const contactAlert = document.getElementById("no_contact_alert");
+        //     if (contactAlert) contactAlert.remove()
+        //     mainDiv.append(noContactAlert);
+        //     // createTable()
+        // }
     })
     
 
@@ -175,9 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 let td = document.createElement("td")
                 td.classList.add(key)
                 td.innerHTML = contact[key]
-                row.append(td)
+                row.appendChild(td)
             }
-            tableBody.append(row)
+            tableBody.appendChild(row)
         })
     }
 
