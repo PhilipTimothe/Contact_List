@@ -67,141 +67,95 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("input", function(event) {
         event.preventDefault();
-        // console.log([`${event.target.value.toLowerCase()}`])
        
        // Declare variables
-        var filter, a, i, txtValue;
-        filter = event.target.value.toUpperCase();
-        tableBody = document.getElementById("contacts_body");
-        tr = tableBody.getElementsByTagName('tr');
-        // console.log(tr[1].innerHTML)
+        var input, ul, a, i, txtValue;
+        let array = [];
+        input = event.target.value.toUpperCase();
+        ul = document.getElementById("contact_list");
+        a = ul.querySelectorAll("a");
 
-        // Loop through all list items, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            a = tr[i].getElementsByTagName("td")[0];
-            console.log(a);
-            // txtValue = a;
-            // if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            // tr[i].style.display = "";
-            // } else {
-            // tr[i].style.display = "none";
-            // }
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(input) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+
+            array.push(a[i])
         }
-        // // let searchedName = contacts.filter(contact => contact.firstName.toLowerCase() === event.target.value.toLowerCase());
-        // // build on edgecase with a condition that filters for both last and first name and values equally each other
-        // let searchedName = contacts.filter(contact => 
-        //     contact.firstName.toLowerCase().includes(`${event.target.value.toLowerCase()}`) || 
-        //     contact.lastName.toLowerCase().includes(`${event.target.value.toLowerCase()}`)
-        //     );
-        // // console.log(searchedName)
-        // if (event.target.value === "") {
-        //     const table = document.getElementById("contact_table")
-        //     const contactAlert = document.getElementById("no_contact_alert");
-        //     if (table) table.remove()
-        //     if (contactAlert) contactAlert.remove()
-
-        //     createTable()
-        //     addRow(contacts)
-        // } else if (searchedName[0]) {
-        //     const table = document.getElementById("contact_table")
-        //     const contactAlert = document.getElementById("no_contact_alert");
-        //     if (table) table.remove()
-        //     if (contactAlert) contactAlert.remove()
-            
-        //     createTable()
-        //     addRow(searchedName)
-        // } else if (!event.target.value === "" && !searchedName[0]) {
-        //     const table = document.getElementById("contact_table")
-        //     if (table) table.remove()
-
-        //     const noContactAlert = document.createElement("div");
-        //     noContactAlert.className = "alert alert-info";
-        //     noContactAlert.id = "no_contact_alert"
-        //     noContactAlert.role = "alert"
-        //     noContactAlert.style = "width:60%;";
-        //     noContactAlert.innerHTML = `
-        //         No Contacts
-        //     `
-            
-        //     const contactAlert = document.getElementById("no_contact_alert");
-        //     if (contactAlert) contactAlert.remove()
-        //     mainDiv.append(noContactAlert);
-        //     // createTable()
-        // }
+        const display = (currentValue) => currentValue.style.display === "none";
+        const alert = document.getElementById("no_contact_alert");
+        if (array.every(display)) {
+            alert.style.display = ""
+        } else {
+            alert.style.display = "none"
+        }
     })
     
 
 // ............................................................Sort Functionality
 
     mainDiv.addEventListener("click", function(event) {
-        // console.log(event.target)
         if (event.target.id === "First-Name") {
             let firstNameSort = contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1);
-            const table = document.getElementById("contact_table")
-            table.remove()
-            createTable()
-            addRow(firstNameSort)
+            const list = document.getElementById("contact_list");
+            list.remove()
+            createList()
+            addlistItem(firstNameSort)
         } else if (event.target.id === "Last-Name") {
             let firstNameSort = contacts.sort((a, b) => (a.lastName > b.lastName) ? 1 : -1) ;
-            const table = document.getElementById("contact_table")
-            table.remove()
-            createTable()
-            addRow(firstNameSort)
+            const list = document.getElementById("contact_list");
+            list.remove()
+            createList()
+            addlistItem(firstNameSort)
         }
     })
 
 
-// ............................................................Create Table
+// ............................................................Create List
     
-    function createTable() {
-        const table = document.createElement("table");
-        table.className = "table table-hover";
-        table.id = "contact_table"
-        table.style = "overflow:auto;";
+    function createList() {
+        const list = document.createElement("list");
+        list.className = "list-group";
+        list.id = "contact_list"
+        list.style = "overflow:auto;";
+        mainDiv.append(list);
 
-        
+        const contactList = document.getElementById("contact_list");
+        const noContactAlert = document.createElement("div");
+        noContactAlert.className = "alert alert-info";
+        noContactAlert.id = "no_contact_alert"
+        noContactAlert.role = "alert"
+        noContactAlert.style = "width:60%; display:none; margin-top:10px";
+        noContactAlert.innerHTML = `
+            No Contacts
+        `
+        contactList.appendChild(noContactAlert);
 
-        const tableBody = document.createElement("tbody");
-        tableBody.style = "text-align: center;";
-        tableBody.id = "contacts_body"
-        tableBody.innerHTML = `
-            <tr>
-                <th class="text-center">Firstname</th>
-                <th class="text-center">Lastname</th> 
-                <th class="text-center">Email</th>
-            </tr>
-        `;
-
-        // const addButton = document.createElement('button');
-        // addButton.className = "btn btn-default";
-        // addButton.type = "submit";
-        // addButton.innerHTML = "Add Contact";
-
-        table.append(tableBody);
-        mainDiv.append(table);
-        // mainDiv.append(addButton);
     }
 
-    createTable()
+    createList()
 
 
-// ............................................................Create Row Functionality
+// ............................................................Create List Item
 
-    function addRow(info) {
-        const tableBody = document.getElementById("contacts_body")
+    function addlistItem(info) {
+        const list = document.getElementById("contact_list");
         info.forEach((contact) => { 
-            const row = document.createElement("tr")
-            for (key in contact) {
-                let td = document.createElement("td")
-                td.classList.add(key)
-                td.innerHTML = contact[key]
-                row.appendChild(td)
-            }
-            tableBody.appendChild(row)
+            const linkedItem = document.createElement("a");
+            
+            linkedItem.className = "list-group-item";
+            linkedItem.id = "contact_list_item";
+            linkedItem.innerHTML = contact.firstName + " " + contact.lastName;
+            linkedItem.style = "margin-top:5px; margin-bottom:10px"
+
+            list.appendChild(linkedItem);
         })
     }
 
-    addRow(contacts)
+    addlistItem(contacts)
 
 
 });
