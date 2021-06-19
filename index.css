@@ -3,9 +3,10 @@ table {
     box-shadow: 1px 1px 4px 4px #888888;
 } */
 
-.btn.search {
-    border: 0;
-    background: none;
+#contact_list_item {
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .main_div {
