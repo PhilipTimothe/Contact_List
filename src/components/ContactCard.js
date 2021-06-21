@@ -20,24 +20,36 @@ class ContactCard {
         {
             firstName: "Jill",
             lastName: "Smith",
-            email: "JillSmith@gmail.com"
+            phoneNumber: "(454)402-1352",
+            email: "JillSmith@gmail.com",
+            address: "",
+            contact_id: 1
         },
         {
             firstName: "Alice",
             lastName: "Tory",
-            email: "AliceTory@gmail.com"
+            phoneNumber: "(709)294-4206",
+            email: "AliceTory@gmail.com",
+            address: "",
+            contact_id: 2
         },
         {
             firstName: "Thomas",
             lastName: "Keeler",
-            email: "ThomasKeeler@gmail.com"
+            phoneNumber: "(684)892-1334",
+            email: "ThomasKeeler@gmail.com",
+            address: "",
+            contact_id: 3
         },
         {
             firstName: "Bob",
             lastName: "Heller",
-            email: "Hellisbob@gmail.com"
+            phoneNumber: "(763)592-1204",
+            email: "Hellisbob@gmail.com",
+            address: "",
+            contact_id: 4
         },
-    ]
+    ];
 
 
 // ............................................................Create Search and Sort Elements
@@ -75,8 +87,7 @@ class ContactCard {
         // Append the form to the main div
         this.constructor.mainDiv.append(form);
         // this.createList();
-
-    }
+    };
 
 
 // ............................................................Create List
@@ -103,7 +114,7 @@ class ContactCard {
         contactList.appendChild(noContactAlert);
         this.addListItem(this.constructor.contacts);
 
-    }
+    };
 
 
 // ............................................................Create List Item
@@ -123,8 +134,8 @@ class ContactCard {
 
             // Append new linked items to the ul node
             list.appendChild(linkedItem);
-        })
-    }
+        });
+    };
 
 
 // ............................................................Search Functionality 
@@ -167,7 +178,7 @@ class ContactCard {
                 alert.style.display = "none"
             }
         });
-    }
+    };
     
 
 // ............................................................Sort Functionality
@@ -175,7 +186,7 @@ class ContactCard {
     attachSortListener() {
         // Create and click event listener with a callback function
         this.constructor.mainDiv.addEventListener("click", this.processOnClick);
-    } 
+    };
         
     processOnClick = (event) => {
         // Implement an edgecase that sorts contact objects by first name or by last name
@@ -183,16 +194,36 @@ class ContactCard {
             // let firstNameSort = this.constructor.contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1);
             this.constructor.contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1);
             const list = document.getElementById("contact_list");
-            list.remove()
-            this.createList()
+            list.remove();
+            this.createList();
             // this.addListItem(firstNameSort)
         } else if (event.target.id === "Last-Name") {
             // let firstNameSort = this.constructor.contacts.sort((a, b) => (a.lastName > b.lastName) ? 1 : -1);
             this.constructor.contacts.sort((a, b) => (a.lastName > b.lastName) ? 1 : -1);
             const list = document.getElementById("contact_list");
-            list.remove()
-            this.createList()
+            list.remove();
+            this.createList();
             // this.addListItem(firstNameSort)
+        };
+    };
+
+
+// ............................................................Contact Overview 
+
+    attachContactOverviewListener() {
+        // Create and click event listener with a callback function
+        const list = document.querySelector("#contact_list")
+        list.addEventListener("click", this.processOnClick);
+    }; 
+        
+    processOnClick = (event) => {
+        // Implement ...
+        if (event.target.id === "contact_list_item") {
+            for (let contact of this.constructor.contacts) {
+                if (event.target.innerHTML === contact.firstName + " " + contact.lastName) {
+                    console.log(contact)
+                }
+            }
         }
     };
 
