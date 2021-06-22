@@ -22,7 +22,7 @@ class ContactCard {
             lastName: "Smith",
             phoneNumber: "(454)402-1352",
             email: "JillSmith@gmail.com",
-            address: "",
+            address: "W 69th St, New York, NY 10133",
             contact_id: 1
         },
         {
@@ -30,7 +30,7 @@ class ContactCard {
             lastName: "Tory",
             phoneNumber: "(709)294-4206",
             email: "AliceTory@gmail.com",
-            address: "",
+            address: "1828 Columbia Rd NW, Washington, DC 20009",
             contact_id: 2
         },
         {
@@ -38,7 +38,7 @@ class ContactCard {
             lastName: "Keeler",
             phoneNumber: "(684)892-1334",
             email: "ThomasKeeler@gmail.com",
-            address: "",
+            address: "2004 US-70S, Nashville, TN 37203",
             contact_id: 3
         },
         {
@@ -46,7 +46,7 @@ class ContactCard {
             lastName: "Heller",
             phoneNumber: "(763)592-1204",
             email: "Hellisbob@gmail.com",
-            address: "",
+            address: "117 Pine St, Seattle, WA 98101",
             contact_id: 4
         },
     ];
@@ -62,12 +62,18 @@ class ContactCard {
         form.className = "form-inline";
         form.style = "padding-bottom:5px"
         form.innerHTML = `
-        <span class="glyphicon glyphicon-plus";
-            aria-hidden="true"; 
-            style="float:right; padding-right:10px; padding-top:5px;";>
-        </span><br>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" 
+            style="float:right; padding-right:10px; padding-top:5px;">
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>
+        </div>
+        <br />
+        <br />
         
-        <h1 align="center" style="margin-top:5px; margin-bottom:10px">Contact List</h1>
+        <div style="display: inline-block; width:100%;">
+            <h1 align="center" style="margin-top:5px; margin-bottom:10px">Contact List</h1>
+        </div>
         <div class="form-group has-feedback">
             <i class="glyphicon glyphicon-search form-control-feedback"></i>
             <input type="text" name="contact" value="" class="form-control" id="exampleInputName2" placeholder="Search">
@@ -204,29 +210,11 @@ class ContactCard {
             list.remove();
             this.createList();
             // this.addListItem(firstNameSort)
-        };
-    };
-
-
-// ............................................................Contact Overview 
-
-    attachContactOverviewListener() {
-        // Create and click event listener with a callback function
-        const list = document.querySelector("#contact_list")
-        list.addEventListener("click", this.processOnClick);
-    }; 
-        
-    processOnClick = (event) => {
-        // Implement ...
-        if (event.target.id === "contact_list_item") {
-            for (let contact of this.constructor.contacts) {
-                if (event.target.innerHTML === contact.firstName + " " + contact.lastName) {
-                    console.log(contact)
-                }
-            }
+        } else if (event.target.id === "contact_list_item") {
+            this.constructor.mainDiv.innerHTML = ""
+            ContactOverview.findContact(this.constructor.contacts)
         }
     };
-
 
 
 }
