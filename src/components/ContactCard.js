@@ -213,6 +213,11 @@ class ContactCard {
         } else if (event.target.id === "contact_list_item") {
             this.constructor.mainDiv.innerHTML = ""
             ContactOverview.findContact(this.constructor.contacts)
+        } else if (event.target.id === "return_arrow" || event.target.id === "return_arrow_svg") {
+            const card = document.getElementById("contact_card");
+            card.remove();
+            this.createSearchAndSort();
+            this.createList();
         }
     };
 

@@ -1,7 +1,6 @@
 class ContactOverview {
 
     constructor(){
-
     }
 
 // ............................................................Contact Overview 
@@ -11,18 +10,16 @@ class ContactOverview {
         // Implement ...
         for (let contact of contacts) {
             if (event.target.innerHTML === contact.firstName + " " + contact.lastName) {
-                console.log(contact)
-                
                 // Declare a constant for a form element creation
                 const contactCard = document.createElement("div");
                 // Attach contactCard node detail data
                 contactCard.className = "card";
-                contactCard.style = ""
+                contactCard.id = "contact_card"
                 contactCard.innerHTML =`
-                    <div style="display: inline-block; width:100%;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16"
+                    <div style="display: inline-block; width:100%;" id="return_arrow">
+                        <svg id="return_arrow_svg" xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16"
                             style="float:left; padding-left:10px; padding-top:5px;">
-                            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                            <path id="return_arrow" fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
                         </svg>
                     </div>
                     <br />
@@ -51,11 +48,15 @@ class ContactOverview {
                         <p>Address</p>
                         <h5>${contact.address}</h5>
                     </div>
-                    `
+                    `;
                 mainDiv.append(contactCard);
-            }
-        }
+            };
+        };
     };
+
+
+// ............................................................Contact Overview    
+
 
 
 
