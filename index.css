@@ -3,6 +3,11 @@ table {
     box-shadow: 1px 1px 4px 4px #888888;
 } */
 
+.list_div {
+    height: 200px;
+    overflow: auto;
+}
+
 #contact_list_item {
     border-top: none;
     border-left: none;
@@ -13,6 +18,8 @@ table {
 .main_div {
     /* vertical-align: middle; */
     width: 60%;
+    /* height: 30%; */
+    /* overflow: auto; */
     /* border: 1px solid; */
     padding: 10px;
     position: fixed;

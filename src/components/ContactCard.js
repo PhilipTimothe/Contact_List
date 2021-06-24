@@ -61,6 +61,7 @@ class ContactCard {
         // Attach form node detail data
         form.className = "form-inline";
         form.style = "padding-bottom:5px"
+        form.id = "card_form"
         form.innerHTML = `
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" 
@@ -101,11 +102,15 @@ class ContactCard {
     // Create a function that will create a list node 
     createList() {
         // Declare list variable and create a list with it
+        const listDiv = document.createElement("div");
+        listDiv.id = "list_div"
+        listDiv.className = "list_div"
         const list = document.createElement("list");
         list.className = "list-group";
         list.id = "contact_list";
         list.style = "overflow:auto;";
-        this.constructor.mainDiv.append(list);
+        listDiv.append(list)
+        this.constructor.mainDiv.append(listDiv);
 
         // Create an alert variable and create the alert node
         const contactList = document.getElementById("contact_list");
@@ -195,29 +200,32 @@ class ContactCard {
     };
         
     processOnClick = (event) => {
+        const form = document.getElementById("card_form");
+        const list = document.getElementById("contact_list");
+        const listDiv = document.getElementById("list_div")
         // Implement an edgecase that sorts contact objects by first name or by last name
         if (event.target.id === "First-Name") {
             // let firstNameSort = this.constructor.contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1);
             this.constructor.contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1);
-            const list = document.getElementById("contact_list");
             list.remove();
             this.createList();
             // this.addListItem(firstNameSort)
         } else if (event.target.id === "Last-Name") {
             // let firstNameSort = this.constructor.contacts.sort((a, b) => (a.lastName > b.lastName) ? 1 : -1);
             this.constructor.contacts.sort((a, b) => (a.lastName > b.lastName) ? 1 : -1);
-            const list = document.getElementById("contact_list");
             list.remove();
             this.createList();
             // this.addListItem(firstNameSort)
         } else if (event.target.id === "contact_list_item") {
-            this.constructor.mainDiv.innerHTML = ""
+            form.style.display = "none"
+            listDiv.style.display = "none"
+            // this.constructor.mainDiv.innerHTML = ""
             ContactOverview.findContact(this.constructor.contacts)
         } else if (event.target.id === "return_arrow" || event.target.id === "return_arrow_svg") {
             const card = document.getElementById("contact_card");
             card.remove();
-            this.createSearchAndSort();
-            this.createList();
+            form.style.display = ""
+            listDiv.style.display = ""
         }
     };
 
