@@ -49,6 +49,14 @@ class ContactCard {
             address: "117 Pine St, Seattle, WA 98101",
             contact_id: 4
         },
+        {
+            firstName: "Laura",
+            lastName: "Ashley",
+            phoneNumber: "(673)242-0234",
+            email: "Lauraashely@gmail.com",
+            address: "5233 Kept St, Palm Beach, FL 62201",
+            contact_id: 5
+        },
     ];
 
 
@@ -59,7 +67,7 @@ class ContactCard {
         // Declare a constant for a form element creation
         const form = document.createElement("form");
         // Attach form node detail data
-        form.className = "form-inline";
+        form.className = "row g-2";
         form.style = "padding-bottom:5px"
         form.id = "card_form"
         form.innerHTML = `
@@ -75,20 +83,22 @@ class ContactCard {
         <div style="display: inline-block; width:100%;">
             <h1 align="center" style="margin-top:5px; margin-bottom:10px">Contact List</h1>
         </div>
-        <div class="form-group has-feedback">
-            <i class="glyphicon glyphicon-search form-control-feedback"></i>
-            <input type="text" name="contact" value="" class="form-control" id="exampleInputName2" placeholder="Search">
-        </div>
-
-        <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Sort By <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a href="#" id="First-Name" class="First-Name">First Name</a></li>
-                <li><a href="#" id="Last-Name" class="Last-Name">Last Name</a></li>
-            </ul>
-        </div> 
+        <div class="row justify-content-center"> 
+            <div class="col-md-5">
+                <i class="bi bi-search"></i>
+                <input type="text" name="contact" value="" class="form-control" id="search_input" placeholder="Search">
+                
+            </div>
+            <div class="col-md-5" style="display: width:50px;">
+                <button style="width:100%; border: 1px solid #ced4da;" type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sort By <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" id="First-Name" class="dropdown-item">First Name</a></li>
+                    <li><a href="#" id="Last-Name" class="dropdown-item">Last Name</a></li>
+                </ul>
+            </div> 
+        </div>    
         `;
 
         // Append the form to the main div
@@ -153,10 +163,10 @@ class ContactCard {
 
     contactSearch() {
         // Declare a constant variable that selects the search form
-        const form = document.querySelector(".form-inline")
+        const searchInput = document.getElementById("search_input")
 
         // Create a event listener that listens for an input and has a callback function
-        form.addEventListener("input", function(event) {
+        searchInput.addEventListener("input", function(event) {
             event.preventDefault();
         
         // Declare variables
@@ -201,19 +211,19 @@ class ContactCard {
         
     processOnClick = (event) => {
         const form = document.getElementById("card_form");
-        const list = document.getElementById("contact_list");
+        // const list = document.getElementById("contact_list");
         const listDiv = document.getElementById("list_div")
         // Implement an edgecase that sorts contact objects by first name or by last name
         if (event.target.id === "First-Name") {
             // let firstNameSort = this.constructor.contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1);
             this.constructor.contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1);
-            list.remove();
+            listDiv.remove();
             this.createList();
             // this.addListItem(firstNameSort)
         } else if (event.target.id === "Last-Name") {
             // let firstNameSort = this.constructor.contacts.sort((a, b) => (a.lastName > b.lastName) ? 1 : -1);
             this.constructor.contacts.sort((a, b) => (a.lastName > b.lastName) ? 1 : -1);
-            list.remove();
+            listDiv.remove();
             this.createList();
             // this.addListItem(firstNameSort)
         } else if (event.target.id === "contact_list_item") {

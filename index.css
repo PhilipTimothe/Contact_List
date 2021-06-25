@@ -1,10 +1,5 @@
-/* 
-table {
-    box-shadow: 1px 1px 4px 4px #888888;
-} */
-
 .list_div {
-    height: 200px;
+    height: 250px;
     overflow: auto;
 }
 
@@ -17,8 +12,8 @@ table {
 
 .main_div {
     /* vertical-align: middle; */
-    width: 60%;
-    /* height: 30%; */
+    width: 500px;
+    height: 425px;
     /* overflow: auto; */
     /* border: 1px solid; */
     padding: 10px;
@@ -28,6 +23,10 @@ table {
     transform: translate(-50%, -50%);
     border-radius: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-   
+}
 
+.add_contact_div {
+    width: 450px;
+    height: 400px;
+    overflow: auto;
 }
