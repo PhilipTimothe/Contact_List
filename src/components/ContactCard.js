@@ -72,9 +72,9 @@ class ContactCard {
         form.id = "card_form"
         form.innerHTML = `
         <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" 
+            <svg xmlns="http://www.w3.org/2000/svg" id="add_contact_svg" width="48" height="48" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" 
             style="float:right; padding-right:10px; padding-top:5px;">
-                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                <path id="add_contact_path" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
             </svg>
         </div>
         <br />
@@ -91,7 +91,7 @@ class ContactCard {
             </div>
             <div class="col-md-5" style="display: width:50px;">
                 <button style="width:100%; border: 1px solid #ced4da;" type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sort By <span class="caret"></span>
+                    Sort By <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
                     <li><a href="#" id="First-Name" class="dropdown-item">First Name</a></li>
@@ -210,8 +210,8 @@ class ContactCard {
     };
         
     processOnClick = (event) => {
+        console.log(event.target)
         const form = document.getElementById("card_form");
-        // const list = document.getElementById("contact_list");
         const listDiv = document.getElementById("list_div")
         // Implement an edgecase that sorts contact objects by first name or by last name
         if (event.target.id === "First-Name") {
@@ -229,11 +229,19 @@ class ContactCard {
         } else if (event.target.id === "contact_list_item") {
             form.style.display = "none"
             listDiv.style.display = "none"
-            // this.constructor.mainDiv.innerHTML = ""
             ContactOverview.findContact(this.constructor.contacts)
         } else if (event.target.id === "return_arrow" || event.target.id === "return_arrow_svg") {
             const card = document.getElementById("contact_card");
             card.remove();
+            form.style.display = ""
+            listDiv.style.display = ""
+        } else if (event.target.id === "add_contact_svg" || event.target.id === "add_contact_path") {
+            form.style.display = "none"
+            listDiv.style.display = "none"
+            AddContact.addContactForm();
+        } else if (event.target.id === "add_contact_cancel_bttn") {
+            const addContactDiv = document.getElementById("add_contact_div")
+            addContactDiv.remove();
             form.style.display = ""
             listDiv.style.display = ""
         }

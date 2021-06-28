@@ -8,9 +8,16 @@ class AddContact {
         const mainDiv = document.querySelector(".main_div")
         const formDiv = document.createElement("div");
         formDiv.className = "add_contact_div";
+        formDiv.id = "add_contact_div"
         formDiv.style = "display: inline-block; width:100%;"
         formDiv.innerHTML = `
-            <form class="row g-3">
+            <form class="row g-3" style="width:450px;">
+                <div class="col-6">
+                    <button class="btn btn-default" id="add_contact_cancel_bttn" style="float: left; color: blue;">Cancel</button>
+                </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-default" id="add_contact_add_bttn" style="float: right; color: blue;">Done</button>
+                </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">First Name</label>
                     <input type="email" class="form-control" id="inputEmail4">
@@ -39,15 +46,12 @@ class AddContact {
                     <label for="inputCity" class="form-label">City</label>
                     <input type="text" class="form-control" id="inputCity">
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="inputState" class="form-label">State</label>
                     <select id="inputState" class="form-select">
                         <option selected>Choose...</option>
                         <option>...</option>
                     </select>
-                </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Add Contact</button>
                 </div>
             </form>
         `;
