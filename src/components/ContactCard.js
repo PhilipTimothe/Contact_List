@@ -128,7 +128,7 @@ class ContactCard {
         noContactAlert.className = "alert alert-info";
         noContactAlert.id = "no_contact_alert";
         noContactAlert.role = "alert";
-        noContactAlert.style = "width:60%; display:none; margin-top:10px";
+        noContactAlert.style = "width:100%; display:none; margin-top:10px";
         noContactAlert.innerHTML = `
             No Contacts
         `;
@@ -210,7 +210,7 @@ class ContactCard {
     };
         
     processOnClick = (event) => {
-        console.log(event.target)
+        // console.log(event.target)
         const form = document.getElementById("card_form");
         const listDiv = document.getElementById("list_div")
         // Implement an edgecase that sorts contact objects by first name or by last name
@@ -238,7 +238,17 @@ class ContactCard {
         } else if (event.target.id === "add_contact_svg" || event.target.id === "add_contact_path") {
             form.style.display = "none"
             listDiv.style.display = "none"
-            AddContact.addContactForm();
+            // AddContact.addContactForm();
+            new AddContact();
+
+            // // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            // var forms = document.querySelectorAll('.needs-validation')
+
+            // // Loop over them and prevent submission
+            // Array.prototype.slice.call(forms)
+            //     .forEach((form) => {
+
+            //     })
         } else if (event.target.id === "add_contact_cancel_bttn") {
             const addContactDiv = document.getElementById("add_contact_div")
             addContactDiv.remove();
