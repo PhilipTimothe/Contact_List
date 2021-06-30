@@ -13,7 +13,7 @@ class AddContact {
         formDiv.innerHTML = `
             <form class="row g-3" style="width:450px;">
                 <div class="col-6">
-                    <button class="btn btn-default" id="add_contact_cancel_bttn" style="float: left; color: blue;">Cancel</button>
+                    <p c id="add_contact_cancel_bttn" style="float: left; color: blue; padding: .375rem .75rem; margin-bottom: 0px; cursor: pointer;">Cancel</p>
                 </div>
                 <div class="col-6">
                     <button type="submit" class="btn btn-default" id="add_contact_add_bttn" style="float: right; color: blue;">Done</button>
