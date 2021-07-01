@@ -238,17 +238,7 @@ class ContactCard {
         } else if (event.target.id === "add_contact_svg" || event.target.id === "add_contact_path") {
             form.style.display = "none"
             listDiv.style.display = "none"
-            // AddContact.addContactForm();
             new AddContact();
-
-            // // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            // var forms = document.querySelectorAll('.needs-validation')
-
-            // // Loop over them and prevent submission
-            // Array.prototype.slice.call(forms)
-            //     .forEach((form) => {
-
-            //     })
         } else if (event.target.id === "add_contact_cancel_bttn") {
             const addContactDiv = document.getElementById("add_contact_div")
             addContactDiv.remove();
