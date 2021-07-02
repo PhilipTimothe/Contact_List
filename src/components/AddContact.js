@@ -63,20 +63,27 @@ class AddContact {
                     <label for="inputAddress2" class="form-label">Address 2</label>
                     <input type="text" class="form-control" name="address2" id="inputAddress2" placeholder="Apartment, studio, or floor">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label for="inputCity" class="form-label">City</label>
                     <input type="text" class="form-control" name="city" id="inputCity" required>
                     <div class="invalid-feedback">
                         Please provide a valid City.
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label for="validationCustom04" class="form-label">State</label>
                     <select class="form-select" name="state" id="inputState" required>
                         <option selected disabled value="">Choose...</option>
                     </select>
                     <div class="invalid-feedback">
                         Please choose a city.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputCity" class="form-label">Zip</label>
+                    <input type="text" class="form-control" name="zip" id="inputZip" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid Zip.
                     </div>
                 </div>
             </form>
@@ -105,19 +112,18 @@ class AddContact {
                 event.stopPropagation()
                 } else {
                     event.preventDefault()
-                    const { firstname, lastname, email, phonenumber, address, address2, city, state} = event.target;
+                    const { firstname, lastname, email, phonenumber, address, address2, city, state, zip} = event.target;
                     const data = {
                         firstname: firstname.value,
                         lastname: lastname.value,
                         email: email.value,
                         phonenumber: phonenumber.value,
-                        address: address.value,
-                        address2: address2.value,
-                        city: city.value,
-                        state: state.value,
+                        address: address.value + ' ' + address2.value + ', ' + city.value + ', ' + state.value + ' ' + zip.value,
                         // restaurant_id: this.restaurantId,
                     };
-                    console.log(data)
+                    ContactCard.contacts.push(data)
+                    console.log(ContactCard.contacts)
+
                 }
 
                 form.classList.add('was-validated')
