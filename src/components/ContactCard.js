@@ -71,35 +71,35 @@ class ContactCard {
         form.style = "padding-bottom:5px"
         form.id = "card_form"
         form.innerHTML = `
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" id="add_contact_svg" width="48" height="48" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" 
-            style="float:right; padding-right:10px; padding-top:5px;">
-                <path id="add_contact_path" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-            </svg>
-        </div>
-        <br />
-        <br />
-        
-        <div style="display: inline-block; width:100%;">
-            <h1 align="center" style="margin-top:5px; margin-bottom:10px">Contact List</h1>
-        </div>
-        <div class="row justify-content-center"> 
-            <div class="col-md-5">
-                <i class="bi bi-search"></i>
-                <input type="text" name="contact" value="" class="form-control" id="search_input" placeholder="Search">
-                
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" id="add_contact_svg" width="48" height="48" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" 
+                style="float:right; padding-right:10px; padding-top:5px;">
+                    <path id="add_contact_path" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg>
             </div>
-            <div class="col-md-5" style="display: width:50px;">
-                <button style="width:100%; border: 1px solid #ced4da;" type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Sort By <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#" id="First-Name" class="dropdown-item">First Name</a></li>
-                    <li><a href="#" id="Last-Name" class="dropdown-item">Last Name</a></li>
-                </ul>
-            </div> 
-        </div>    
-        `;
+            <br />
+            <br />
+            
+            <div style="display: inline-block; width:100%;">
+                <h1 align="center" style="margin-top:5px; margin-bottom:10px">Contact List</h1>
+            </div>
+            <div class="row justify-content-center"> 
+                <div class="col-md-5">
+                    <i class="bi bi-search"></i>
+                    <input type="text" name="contact" value="" class="form-control" id="search_input" placeholder="Search">
+                    
+                </div>
+                <div class="col-md-5" style="display: width:50px;">
+                    <button style="width:100%; border: 1px solid #ced4da;" type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sort By <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" id="First-Name" class="dropdown-item">First Name</a></li>
+                        <li><a href="#" id="Last-Name" class="dropdown-item">Last Name</a></li>
+                    </ul>
+                </div> 
+            </div>    
+            `;
 
         // Append the form to the main div
         this.constructor.mainDiv.append(form);
@@ -133,7 +133,7 @@ class ContactCard {
             No Contacts
         `;
         contactList.appendChild(noContactAlert);
-        this.addListItem(this.constructor.contacts);
+        this.constructor.addListItem(this.constructor.contacts);
 
     };
 
@@ -141,7 +141,7 @@ class ContactCard {
 // ............................................................Create List Item
 
     // Create a function that will create "a" nodes which will be appended to the ul element
-    addListItem(info) {
+    static addListItem(info) {
         // Declare a constant variable to grab an element
         const list = document.getElementById("contact_list");
         // Loop through contact array objects and create each ul object
@@ -210,7 +210,6 @@ class ContactCard {
     };
         
     processOnClick = (event) => {
-        // console.log(event.target)
         const form = document.getElementById("card_form");
         const listDiv = document.getElementById("list_div")
         // Implement an edgecase that sorts contact objects by first name or by last name
@@ -244,7 +243,7 @@ class ContactCard {
             addContactDiv.remove();
             form.style.display = ""
             listDiv.style.display = ""
-        }
+        } 
     };
 
 

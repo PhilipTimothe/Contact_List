@@ -9,6 +9,8 @@ class AddContact {
         this.getValidate();
     }
 
+// ............................................................Add Contact Form    
+
     addContactForm() {
         const mainDiv = document.querySelector(".main_div")
         const formDiv = document.createElement("div");
@@ -94,14 +96,18 @@ class AddContact {
             const optionItem = document.createElement("OPTION");
             optionItem.innerHTML = state
             stateSelect.appendChild(optionItem)
-        })
-    }
+        });
+    };
+
+// ............................................................Form Validations & Submission Edgecase
 
     getValidate() {
+        const cardForm = document.getElementById("card_form");
+        const listItems = document.querySelectorAll("#contact_list_item");
+        const listDiv = document.getElementById("list_div");
 
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation')
-        // console.log(forms)
+        var forms = document.querySelectorAll('.needs-validation');
 
         // Loop over them and prevent submission
         Array.prototype.slice.call(forms)
@@ -111,24 +117,32 @@ class AddContact {
                 event.preventDefault()
                 event.stopPropagation()
                 } else {
-                    event.preventDefault()
+                    event.preventDefault();
                     const { firstname, lastname, email, phonenumber, address, address2, city, state, zip} = event.target;
                     const data = {
-                        firstname: firstname.value,
-                        lastname: lastname.value,
+                        firstName: firstname.value,
+                        lastName: lastname.value,
+                        phoneNumber: phonenumber.value,
                         email: email.value,
-                        phonenumber: phonenumber.value,
                         address: address.value + ' ' + address2.value + ', ' + city.value + ', ' + state.value + ' ' + zip.value,
-                        // restaurant_id: this.restaurantId,
+                        contact_id: ContactCard.contacts.length + 1
                     };
-                    ContactCard.contacts.push(data)
-                    console.log(ContactCard.contacts)
-
+                    ContactCard.contacts.push(data);
+                    console.log(ContactCard.contacts);
+                    const addContactDiv = document.getElementById("add_contact_div");
+                    addContactDiv.remove();
+                    cardForm.style.display = "";
+                    for (var i = 0; i < listItems.length; i++) {
+                        listItems[i].remove();
+                    };
+                    ContactCard.addListItem(ContactCard.contacts);
+                    listDiv.style.display = ""
                 }
 
                 form.classList.add('was-validated')
-            }, false)
-        })
+            }, false);
+        });
 
-    }
-}
+    };
+};
+
