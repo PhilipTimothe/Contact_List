@@ -10,6 +10,15 @@
     cursor: pointer;
 }
 
+#cover_photo {
+    width: 150px; /* width of container */
+    height: 150px;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: 0 0;
+    border-radius: 100px;
+}
+
 #return_arrow_svg {
     cursor: pointer;
 }
@@ -35,6 +44,11 @@
 
 #contact_card {
     border: none;
+    height: 410px;
+}
+
+#contact_card_details {
+    overflow: auto;
 }
 
 #contact_card_details {

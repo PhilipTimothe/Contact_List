@@ -49,7 +49,7 @@ class AddContact {
                 </div>
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Phone Number</label>
-                    <input type="text" class="form-control" name="phonenumber" id="inputPhoneNumber" required>
+                    <input type="tel" class="form-control" name="phonenumber" id="inputPhoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
                     <div class="invalid-feedback">
                         Please provide a valid phone number.
                     </div>
@@ -118,11 +118,11 @@ class AddContact {
                 event.stopPropagation()
                 } else {
                     event.preventDefault();
-                    const { firstname, lastname, email, phonenumber, address, address2, city, state, zip} = event.target;
+                    const { firstName, lastName, email, phoneNumber, address, address2, city, state, zip} = event.target;
                     const data = {
-                        firstName: firstname.value,
-                        lastName: lastname.value,
-                        phoneNumber: phonenumber.value,
+                        firstName: firstName.value,
+                        lastName: lastName.value,
+                        phoneNumber: phoneNumber.value,
                         email: email.value,
                         address: address.value + ' ' + address2.value + ', ' + city.value + ', ' + state.value + ' ' + zip.value,
                         contact_id: ContactCard.contacts.length + 1
