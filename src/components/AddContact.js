@@ -118,15 +118,16 @@ class AddContact {
                 event.stopPropagation()
                 } else {
                     event.preventDefault();
-                    const { firstName, lastName, email, phoneNumber, address, address2, city, state, zip} = event.target;
+                    const { firstname, lastname, email, phonenumber, address, address2, city, state, zip} = event.target;
                     const data = {
-                        firstName: firstName.value,
-                        lastName: lastName.value,
-                        phoneNumber: phoneNumber.value,
+                        firstName: firstname.value,
+                        lastName: lastname.value,
+                        phoneNumber: phonenumber.value,
                         email: email.value,
                         address: address.value + ' ' + address2.value + ', ' + city.value + ', ' + state.value + ' ' + zip.value,
                         contact_id: ContactCard.contacts.length + 1
                     };
+                    console.log(data)
                     ContactCard.contacts.push(data);
                     console.log(ContactCard.contacts);
                     const addContactDiv = document.getElementById("add_contact_div");
