@@ -42,14 +42,14 @@ class AddContact {
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email" id="inputEmail" required>
+                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="email@email.com" required>
                     <div class="invalid-feedback">
                         Please provide a valid email.
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" name="phonenumber" id="inputPhoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                    <input type="tel" class="form-control" name="phonenumber" id="inputPhoneNumber" placeholder="(555)555-1923" pattern="[(][0-9]{3}[)][0-9]{3}-[0-9]{4}" required>
                     <div class="invalid-feedback">
                         Please provide a valid phone number.
                     </div>
@@ -83,7 +83,7 @@ class AddContact {
                 </div>
                 <div class="col-md-4">
                     <label for="inputCity" class="form-label">Zip</label>
-                    <input type="text" class="form-control" name="zip" id="inputZip" required>
+                    <input type="text" class="form-control" name="zip" id="inputZip" pattern="[0-9]{5}" placeholder="90210" required>
                     <div class="invalid-feedback">
                         Please provide a valid Zip.
                     </div>
