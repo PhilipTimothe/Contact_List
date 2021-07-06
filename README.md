@@ -39,12 +39,16 @@ List of good things used in this application:<br/>
 
 - Once on the page nodes will dynamically load
 <img src="images/Contact List.jpg">
+
 - User can search via the search bar by letter or full name
 <img src="images/Contact List-2.jpg">
+
 - User can sort by ascending or descending order
 <img src="images/Contact List-5.jpg">
+
 - User has the ability to click on objects, allowing them to experience the full overview of data the object has
 <img src="images/Contact List-4.jpg">
+
 - User also has the ability to add a contact via the plus button on main page render
 <img src="images/Contact List-3.jpg">
 
