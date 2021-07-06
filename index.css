@@ -1,5 +1,6 @@
 #list_div {
     height: 250px;
+    margin-top: 5px;
     overflow: auto;
 }
 
@@ -33,6 +34,8 @@
     height: 425px;
     /* overflow: auto; */
     /* border: 1px solid; */
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     position: fixed;
     top: 50%;

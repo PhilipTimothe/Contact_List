@@ -12,7 +12,7 @@ class AddContact {
 // ............................................................Add Contact Form    
 
     addContactForm() {
-        const mainDiv = document.querySelector(".main_div")
+        const mainDiv = document.querySelector("#main_div")
         const formDiv = document.createElement("div");
         formDiv.className = "add_contact_div";
         formDiv.id = "add_contact_div"

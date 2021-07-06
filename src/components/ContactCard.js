@@ -67,12 +67,12 @@ class ContactCard {
         // Declare a constant for a form element creation
         const form = document.createElement("div");
         // Attach form node detail data
-        form.className = "container";
+        form.className = "container-fluid";
         form.style = "padding-bottom:5px"
         form.id = "card_form"
         form.innerHTML = `
             <div class="row">
-                <div class="col">
+                <div class="col-sm-12">
                     <svg xmlns="http://www.w3.org/2000/svg" id="add_contact_svg" width="48" height="48" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" 
                     style="float:right; padding-right:10px; padding-top:5px;">
                         <path id="add_contact_path" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -80,16 +80,16 @@ class ContactCard {
                 </div>
             </div>
             <div class="row" style="display: inline-block; width:100%;">
-                <div class="col">
+                <div class="col-sm-12">
                     <h1 align="center" style="margin-top:5px; margin-bottom:10px">Contact List</h1>
                 </div>
             </div>
             <div class="row justify-content-center"> 
-                <div class="col">
+                <div class="col-sm-6" style="padding:10px">
                     <i class="bi bi-search"></i>
                     <input type="text" name="contact" value="" class="form-control" id="search_input" placeholder="Search">
                 </div>
-                <div class="col" style="display: width:50px;">
+                <div class="col-sm-6" style="padding:10px">
                     <button style="width:100%; border: 1px solid #ced4da;" type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Sort By <span class="caret"></span>
                     </button>
@@ -114,11 +114,12 @@ class ContactCard {
         // Declare list variable and create a list with it
         const listDiv = document.createElement("div");
         listDiv.id = "list_div"
-        listDiv.className = "container"
+        listDiv.className = "container-fluid"
         const listRow = document.createElement("div");
         listRow.className = "row"
         const listCol = document.createElement("div");
-        listCol.className = "col"
+        listCol.className = "col-sm-12"
+        // listCol.style = ""
 
         const list = document.createElement("list");
         list.className = "list-group";
@@ -137,15 +138,18 @@ class ContactCard {
         alertCol.className = "col"
         
 
-        const noContactAlert = document.createElement("div");
-        noContactAlert.className = "alert alert-info";
-        noContactAlert.id = "no_contact_alert";
-        noContactAlert.role = "alert";
-        noContactAlert.style = "width:100%; display:none; margin-top:10px";
-        noContactAlert.innerHTML = `
-            No Contacts
+        // const noContactAlert = document.createElement("div");
+        // noContactAlert.className = "alert alert-info";
+        // noContactAlert.id = "no_contact_alert";
+        // noContactAlert.role = "alert";
+        // noContactAlert.style = "width:100%; display:none; margin-top:10px";
+        alertCol.innerHTML = `
+            <div class="alert alert-info" id="no_contact_alert" role="alert" style="display:none">
+                No Contacts
+            </div>
         `;
-        contactList.appendChild(noContactAlert);
+        alertRow.append(alertCol);
+        contactList.appendChild(alertRow);
         this.constructor.addListItem(this.constructor.contacts);
 
     };
