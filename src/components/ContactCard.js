@@ -119,7 +119,6 @@ class ContactCard {
         listRow.className = "row"
         const listCol = document.createElement("div");
         listCol.className = "col-sm-12"
-        // listCol.style = ""
 
         const list = document.createElement("list");
         list.className = "list-group";
@@ -135,14 +134,7 @@ class ContactCard {
         const alertRow = document.createElement("div");
         alertRow.className = "row"
         const alertCol = document.createElement("div");
-        alertCol.className = "col"
-        
-
-        // const noContactAlert = document.createElement("div");
-        // noContactAlert.className = "alert alert-info";
-        // noContactAlert.id = "no_contact_alert";
-        // noContactAlert.role = "alert";
-        // noContactAlert.style = "width:100%; display:none; margin-top:10px";
+        alertCol.className = "col-sm-12"
         alertCol.innerHTML = `
             <div class="alert alert-info" id="no_contact_alert" role="alert" style="display:none">
                 No Contacts

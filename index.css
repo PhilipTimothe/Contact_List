@@ -60,7 +60,7 @@
     overflow: auto;
 }
 
-.add_contact_div {
+#add_contact_div {
     padding-top: 5px;
     padding-bottom: 5px;
     width: 450px;
