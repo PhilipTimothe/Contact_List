@@ -4,6 +4,7 @@
 
 - [About This App](#about-this-app)
 - [Getting Started](#getting-started)
+- [Demo App](#demo-app)
 - [How to Use This App](#how-to-use-this-app)
 - [License](#license)
 
@@ -14,6 +15,11 @@
 <br/>
 
 This application is a personal project intended to mirror an iPhone contact application.  The purpose is to provide functionality that allows a user to do a few things: view a list of saved contacts, dynamically render contact information, search for specific contacts via speific wording or lettering, sort the list in either ascending or descending order, and finally, add a contact to the overall list.
+<br/>
+<br/>
+
+## Demo App
+<a href="https://philiptimothe.github.io/Contact_List/">Contact List Application Demo Link</a>
 <br/>
 <br/>
 
