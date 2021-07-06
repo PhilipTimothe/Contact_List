@@ -6,7 +6,7 @@ class ContactOverview {
 // ............................................................Contact Overview 
         
     static findContact(contacts) {
-        const mainDiv = document.querySelector(".main_div")
+        const mainDiv = document.querySelector("#main_div")
         // Implement ...
         for (let contact of contacts) {
             if (event.target.innerHTML === contact.firstName + " " + contact.lastName) {

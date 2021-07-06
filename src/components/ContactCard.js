@@ -1,7 +1,7 @@
 class ContactCard {
 
     // Create a variable to capture the main div
-    static mainDiv = document.querySelector(".main_div")
+    static mainDiv = document.querySelector("#main_div")
 
     constructor() {
         // this.contacts = contacts;
@@ -65,31 +65,31 @@ class ContactCard {
     // Create a function that will embed a search box and a sort list
     createSearchAndSort() {
         // Declare a constant for a form element creation
-        const form = document.createElement("form");
+        const form = document.createElement("div");
         // Attach form node detail data
-        form.className = "row g-2";
+        form.className = "container";
         form.style = "padding-bottom:5px"
         form.id = "card_form"
         form.innerHTML = `
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" id="add_contact_svg" width="48" height="48" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" 
-                style="float:right; padding-right:10px; padding-top:5px;">
-                    <path id="add_contact_path" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                </svg>
+            <div class="row">
+                <div class="col">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="add_contact_svg" width="48" height="48" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" 
+                    style="float:right; padding-right:10px; padding-top:5px;">
+                        <path id="add_contact_path" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                </div>
             </div>
-            <br />
-            <br />
-            
-            <div style="display: inline-block; width:100%;">
-                <h1 align="center" style="margin-top:5px; margin-bottom:10px">Contact List</h1>
+            <div class="row" style="display: inline-block; width:100%;">
+                <div class="col">
+                    <h1 align="center" style="margin-top:5px; margin-bottom:10px">Contact List</h1>
+                </div>
             </div>
             <div class="row justify-content-center"> 
-                <div class="col-md-5">
+                <div class="col">
                     <i class="bi bi-search"></i>
                     <input type="text" name="contact" value="" class="form-control" id="search_input" placeholder="Search">
-                    
                 </div>
-                <div class="col-md-5" style="display: width:50px;">
+                <div class="col" style="display: width:50px;">
                     <button style="width:100%; border: 1px solid #ced4da;" type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Sort By <span class="caret"></span>
                     </button>
@@ -114,16 +114,29 @@ class ContactCard {
         // Declare list variable and create a list with it
         const listDiv = document.createElement("div");
         listDiv.id = "list_div"
-        listDiv.className = "list_div"
+        listDiv.className = "container"
+        const listRow = document.createElement("div");
+        listRow.className = "row"
+        const listCol = document.createElement("div");
+        listCol.className = "col"
+
         const list = document.createElement("list");
         list.className = "list-group";
         list.id = "contact_list";
         list.style = "overflow:auto;";
-        listDiv.append(list)
+        listCol.append(list)
+        listRow.append(listCol)
+        listDiv.append(listRow)
         this.constructor.mainDiv.append(listDiv);
 
         // Create an alert variable and create the alert node
         const contactList = document.getElementById("contact_list");
+        const alertRow = document.createElement("div");
+        alertRow.className = "row"
+        const alertCol = document.createElement("div");
+        alertCol.className = "col"
+        
+
         const noContactAlert = document.createElement("div");
         noContactAlert.className = "alert alert-info";
         noContactAlert.id = "no_contact_alert";

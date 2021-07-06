@@ -1,4 +1,4 @@
-.list_div {
+#list_div {
     height: 250px;
     overflow: auto;
 }
@@ -27,7 +27,7 @@
     cursor: pointer;
 }
 
-.main_div {
+#main_div {
     /* vertical-align: middle; */
     width: 500px;
     height: 425px;
