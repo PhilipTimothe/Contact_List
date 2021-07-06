@@ -17,7 +17,7 @@ class ContactOverview {
                 contactCardRow.className = "row"
                 const contactCardCol = document.createElement("div");
                 // Attach contactCard node detail data
-                contactCardCol.className = "col-12";
+                contactCardCol.className = "col-sm-12";
                 contactCardCol.id = ""
                 contactCardCol.innerHTML =`
                     <div class="card" id="contact_card">

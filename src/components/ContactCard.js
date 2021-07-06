@@ -72,7 +72,7 @@ class ContactCard {
         form.id = "card_form"
         form.innerHTML = `
             <div class="row">
-                <div class="col-12">
+                <div class="col-sm-12">
                     <svg xmlns="http://www.w3.org/2000/svg" id="add_contact_svg" width="48" height="48" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" 
                     style="float:right; padding-right:10px; padding-top:5px;">
                         <path id="add_contact_path" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -80,16 +80,16 @@ class ContactCard {
                 </div>
             </div>
             <div class="row" style="display: inline-block; width:100%;">
-                <div class="col-12">
+                <div class="col-sm-12">
                     <h1 align="center" style="margin-top:5px; margin-bottom:10px">Contact List</h1>
                 </div>
             </div>
             <div class="row justify-content-center"> 
-                <div class="col-6" style="padding:10px">
+                <div class="col-sm-6" style="padding:10px">
                     <i class="bi bi-search"></i>
                     <input type="text" name="contact" value="" class="form-control" id="search_input" placeholder="Search">
                 </div>
-                <div class="col-6" style="padding:10px">
+                <div class="col-sm-6" style="padding:10px">
                     <button style="width:100%; border: 1px solid #ced4da;" type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Sort By <span class="caret"></span>
                     </button>
@@ -118,7 +118,7 @@ class ContactCard {
         const listRow = document.createElement("div");
         listRow.className = "row"
         const listCol = document.createElement("div");
-        listCol.className = "col-12"
+        listCol.className = "col-sm-12"
 
         const list = document.createElement("list");
         list.className = "list-group";
@@ -132,9 +132,9 @@ class ContactCard {
         // Create an alert variable and create the alert node
         const contactList = document.getElementById("contact_list");
         const alertRow = document.createElement("div");
-        alertRow.className = "row"
+        alertRow.className = "row justify-content-center"
         const alertCol = document.createElement("div");
-        alertCol.className = "col-12"
+        alertCol.className = "col-sm-6"
         alertCol.innerHTML = `
             <div class="alert alert-info" id="no_contact_alert" role="alert" style="display:none">
                 No Contacts
