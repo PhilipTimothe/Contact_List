@@ -13,6 +13,7 @@ class ContactOverview {
                 // Declare a constant for a form element creation
                 const contactCard = document.createElement("div");
                 contactCard.className = "container-fluid"
+                contactCard.style = "overflow: auto"
                 const contactCardRow = document.createElement("div");
                 contactCardRow.className = "row"
                 const contactCardCol = document.createElement("div");

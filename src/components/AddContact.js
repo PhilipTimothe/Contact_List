@@ -18,7 +18,7 @@ class AddContact {
         formDiv.id = "add_contact_div"
         formDiv.style = "display: inline-block; width:100%;"
         formDiv.innerHTML = `
-            <form class="row needs-validation" id="add_contact_form" novalidate style="width:450px;">
+            <form class="row needs-validation" id="add_contact_form" novalidate style="width:100%; height:100%">
                 <div class="col-6">
                     <p id="add_contact_cancel_bttn" style="float: left; color: blue; padding: .375rem .75rem; margin-bottom: 0px; cursor: pointer;">Cancel</p>
                 </div>

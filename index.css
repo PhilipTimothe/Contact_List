@@ -30,8 +30,8 @@
 
 #main_div {
     /* vertical-align: middle; */
-    width: 500px;
-    height: 425px;
+    width: 400px;
+    height: 400px;
     /* overflow: auto; */
     /* border: 1px solid; */
     display: flex;
@@ -51,19 +51,15 @@
 }
 
 #contact_card_details {
-    overflow: auto;
-}
-
-#contact_card_details {
     width: 100%;
-    height: 220px;
+    height: 100%;
     overflow: auto;
 }
 
 #add_contact_div {
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 450px;
+    width: 400px;
     height: 400px;
     overflow: auto;
 }
