@@ -30,7 +30,7 @@ class ContactOverview {
                         </div>
 
                         <div style="margin-top:5px; margin-bottom:10px;">
-                            <img id="cover_photo" src="https://images.squarespace-cdn.com/content/v1/599d758e6f4ca395507985c5/1581296914398-0JMDW9080JOUT7LA0CO2/March+20-21.JPG?format=1500w" alt="" />
+                            <img id="cover_photo" src="images/March+20-21.jpg" alt="" />
                         </div>
                         
                         <div id="contact_card_details">
