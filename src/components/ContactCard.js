@@ -102,7 +102,7 @@ class ContactCard {
             `;
 
         // Append the form to the main div
-        this.constructor.mainDiv.append(form);
+        this.constructor.mainDiv.append(form); 
         // this.createList();
     };
 
@@ -225,7 +225,7 @@ class ContactCard {
         if (event.target.id === "First-Name") {
             // let firstNameSort = this.constructor.contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1);
             this.constructor.contacts.sort((a, b) => (a.firstName > b.firstName) ? 1 : -1);
-            listDiv.remove();
+            listDiv.remove(); 
             this.createList();
             // this.addListItem(firstNameSort)
         } else if (event.target.id === "Last-Name") {
