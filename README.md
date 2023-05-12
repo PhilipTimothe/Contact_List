@@ -2,11 +2,11 @@
 
 ## Table of contents
 
-- [About This App](##about-this-app)
-- [Getting Started](##getting-started)
-- [Demo App](##demo-app)
-- [How to Use This App](##how-to-use-this-app)
-- [License](##license)
+- [About This App](#about-this-app)
+- [Getting Started](#getting-started)
+- [Demo App](#demo-app)
+- [How to Use This App](#how-to-use-this-app)
+- [License](#license)
 
 ## About this App
 <div align="center">
@@ -25,7 +25,7 @@ This application is a personal project intended to mirror an iPhone contact appl
 
 
 ## Getting Started
-
+#getting-started
 Contact list is pure javascript with boostrap.  If you'd like to, clone this repo and break some things here:<br/>
 <a href="https://github.com/PhilipTimothe/Contact_List">Contact List Repository</a>
 <br/>
