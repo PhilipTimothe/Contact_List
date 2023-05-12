@@ -24,10 +24,10 @@ This application is a personal project intended to mirror an iPhone contact appl
 <br/>
 
 
-## Getting Started
+## [Getting Started]
 
 Contact list is pure javascript with boostrap.  If you'd like to, clone this repo and break some things here:<br/>
-<a href="https://github.com/PhilipTimothe/Contact_List" #getting-started>Contact List Repository</a>
+<a href="https://github.com/PhilipTimothe/Contact_List">Contact List Repository</a>
 <br/>
 
 List of good things used in this application:<br/>
