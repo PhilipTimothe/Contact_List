@@ -2,11 +2,11 @@
 
 ## Table of contents
 
-- [About This App](#about-this-app)
-- [Getting Started](#getting-started)
-- [Demo App](#demo-app)
-- [How to Use This App](#how-to-use-this-app)
-- [License](#license)
+- [About This App](##about-this-app)
+- [Getting Started](##getting-started)
+- [Demo App](##demo-app)
+- [How to Use This App](##how-to-use-this-app)
+- [License](##license)
 
 ## About this App
 <div align="center">
